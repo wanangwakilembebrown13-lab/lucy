@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,8 @@ body{
 font-family: Arial, sans-serif;
 margin:0;
 background:#f5f5f5;
-animation: fadeIn 1.5s;
 }
+
 /* HEADER */
 
 header{
@@ -32,36 +33,110 @@ padding:60px;
 text-align:center;
 }
 
-/* PRODUCTS GRID */
+/* PRODUCT SECTION */
 
 .products{
+position:relative;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 padding:40px;
+overflow:hidden;
+}
+
+/* COLOR BLOBS CONTAINER */
+
+.blobs{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:0;
+filter:blur(120px);
+}
+
+/* BLOB STYLE */
+
+.blob{
+position:absolute;
+width:400px;
+height:400px;
+border-radius:50%;
+opacity:0.7;
+animation:move 20s infinite alternate ease-in-out;
+}
+
+/* COLORS */
+
+.blob1{
+background:pink;
+top:10%;
+left:20%;
+animation-duration:18s;
+}
+
+.blob2{
+background:purple;
+top:50%;
+left:70%;
+animation-duration:22s;
+}
+
+.blob3{
+background:blue;
+top:20%;
+left:80%;
+animation-duration:25s;
+}
+
+.blob4{
+background:#CC5500;
+top:70%;
+left:30%;
+animation-duration:20s;
+}
+
+/* BLOB MOVEMENT */
+
+@keyframes move{
+
+0%{
+transform:translate(0,0) scale(1);
+}
+
+50%{
+transform:translate(200px,-150px) scale(1.2);
+}
+
+100%{
+transform:translate(-150px,200px) scale(0.9);
+}
+
 }
 
 /* PRODUCT CARD */
 
 .product-card{
+position:relative;
+z-index:1;
 background:white;
 border-radius:10px;
 box-shadow:0 4px 15px rgba(0,0,0,0.2);
 padding:20px;
 text-align:center;
-size: 500px;
 
 transition:transform 0.4s, box-shadow 0.4s;
 }
 
-/* CARD HOVER ANIMATION */
+/* HOVER */
 
 .product-card:hover{
 transform:translateY(-10px) scale(1.03);
 box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* IMAGE ANIMATION */
+/* IMAGE */
 
 .product-card img{
 width:100%;
@@ -91,15 +166,22 @@ padding:12px 20px;
 border-radius:6px;
 cursor:pointer;
 margin-top:10px;
-
 transition:all 0.3s;
 }
-
-/* BUTTON HOVER */
 
 button:hover{
 background:#2E7D32;
 transform:scale(1.1);
+}
+
+/* IMAGE SIZE */
+
+.product-image{
+width:100px;
+}
+
+.image-space{
+margin-top:25px;
 }
 
 /* FOOTER */
@@ -111,13 +193,6 @@ text-align:center;
 padding:20px;
 margin-top:40px;
 }
-.product-image{
-    width: 100px;
-
-}
-.image-space{
-    margin-top: 25px;
-}
 
 </style>
 </head>
@@ -125,27 +200,33 @@ margin-top:40px;
 <body>
 
 <header>
-<h1 style="font-size: 32px;">Lucia Fashion Store</h1>
+<h1 style="font-size:32px;">Lucia Fashion Store</h1>
 <p>Quality Clothing & Accessories</p>
 </header>
 
 <section class="hero">
-<h2 style="font-size: 40px;">Premium Clothing Collection</h2>
+<h2 style="font-size:40px;">Premium Clothing Collection</h2>
 <p>T-Shirts • Bath Gloves • Fashion Socks</p>
-<p> Order On WhatsApp : +265 985 22 75 33</p>
-<p>Free Delivery  &#10004;</p>
+<p>Order On WhatsApp : +265 985 22 75 33</p>
+<p>Free Delivery ✔</p>
 </section>
 
 <section class="products">
 
+<!-- MOVING BLOBS -->
+<div class="blobs">
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+<div class="blob blob4"></div>
+</div>
+
 <div class="product-card">
-<img  src="lucy-bussines/tshirt.l.jpeg">
+<img src="lucy-bussines/tshirt.l.jpeg">
 <h3 class="image-space">White Cotton T-Shirts</h3>
 <p>Comfortable everyday wear.</p>
 <p class="price">MWK 9,000</p>
-<a href="https://wa.me/265985227533" target="_blank"><button>Order Now </button></a>
-
-
+<a href="https://wa.me/265985227533" target="_blank"><button>Order Now</button></a>
 </div>
 
 <div class="product-card">
@@ -161,7 +242,7 @@ margin-top:40px;
 <h3 class="image-space">Fashion Socks</h3>
 <p>Stylish and comfortable socks.</p>
 <p class="price">MWK 2,000</p>
-<a href="https://wa.me/265985227533" target="_blank"><button>Order Now </button></a>
+<a href="https://wa.me/265985227533" target="_blank"><button>Order Now</button></a>
 </div>
 
 <div class="product-card">
@@ -169,14 +250,15 @@ margin-top:40px;
 <h3 class="image-space">Tote Bags</h3>
 <p>Stylish and durable bags.</p>
 <p class="price">MWK 10,000</p>
-<a href="https://wa.me/265985227533" target="_blank"><button>Order Now </button></a>
+<a href="https://wa.me/265985227533" target="_blank"><button>Order Now</button></a>
 </div>
+
 <div class="product-card">
 <img class="product-image" src="lucy-bussines/nicke.l.jpeg">
 <h3 class="image-space">Cool Nike Socks</h3>
 <p>Stylish and comfortable socks.</p>
 <p class="price">MWK 3,500</p>
-<a href="https://wa.me/265985227533" target="_blank"><button>Order Now </button></a>
+<a href="https://wa.me/265985227533" target="_blank"><button>Order Now</button></a>
 </div>
 
 <div class="product-card">
@@ -189,32 +271,19 @@ margin-top:40px;
 
 <div class="product-card">
 <img class="product-image" src="lucy-bussines/mesh.l.jpeg">
-<h3 class="image-space">Mesh </h3>
+<h3 class="image-space">Mesh</h3>
 <p>Unleash your style with our mesh collection.</p>
 <p class="price">MWK 3,000</p>
 <a href="https://wa.me/265985227533" target="_blank"><button>Order Now</button></a>
-</div>    
-    
+</div>
+
 </section>
 
 <footer>
-
 <p>Contact us on WhatsApp: +265 985 22 75 33</p>
 <p>Email: chikojalucy54@gmail.com</p>
 <p>© 2026 Lucia Fashion Store</p>
-
 </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
