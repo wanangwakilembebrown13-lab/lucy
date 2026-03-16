@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -509,6 +510,17 @@ transition:transform 0.3s;
 background:#128C7E;
 transform:scale(1.02);
 }
+/* Two buttons side by side for rice options */
+.rice-options {
+display: flex;
+gap: 10px;
+justify-content: center;
+margin-top: 10px;
+}
+.rice-options button {
+flex: 1;
+margin-top: 0;
+}
 </style>
 </head>
 <body>
@@ -591,8 +603,6 @@ transform:scale(1.02);
 <div class="blob blob3"></div>
 <div class="blob blob4"></div>
 </div>
-
-
 
 <div class="product-card">
 <img class="product-image" src="lucy-bussines/wash-glove.l.jpeg" onclick="zoomImage(this)">
@@ -684,15 +694,18 @@ transform:scale(1.02);
 </div>
 </section>
 
-<!-- RELATED PRODUCTS (only kilombelo left) -->
+<!-- RELATED PRODUCTS (Kilombero Rice with two options) -->
 <section class="related-products">
 <h3>You May Also Like</h3>
 <div class="related-grid">
 <div class="related-card">
-<img src="lucy-bussines/rice bag.l.jpeg" alt="Pattern Boxers">
-<h4>Kilombelo  Rice </h4>
-<p class="related-price">MWK 3,500 per kg </p>
-<button onclick="addToCart('Kilombero  Rice ', 3500)">Add to Cart</button>
+<img src="lucy-bussines/rice bag.l.jpeg" alt="Kilombero Rice">
+<h4>Kilombero Rice</h4>
+<!-- Removed old price paragraph and button; added two buttons in a flex container -->
+<div class="rice-options">
+<button onclick="addToCart('Kilombero Rice (Mbale)', 4500)">Mbale : MWK 4,500</button>
+<button onclick="addToCart('Kilombero Rice (5L)', 20000)">5L : MWK 20,000</button>
+</div>
 </div>
 </div>
 </section>
@@ -927,3 +940,4 @@ console.log('Lucia Fashion Store loaded!');
 </script>
 </body>
 </html>
+```
